@@ -11,50 +11,62 @@ $ sudo add-apt-repository ppa:saiarcot895/chromium-beta
 ```
 OR
 DEV BRANCE:
+```
 $ sudo add-apt-repository ppa:saiarcot895/chromium-dev
+```
 
 2. Pin the PPA with a priority of 1001.
 for the Beta PPA:
+```
 $ sudo nano /etc/apt/preferences.d/chromium
+```
 
 add these lines:
 
-for beta:
----
+for beta
+```
 Package: *
 Pin: release o=LP-PPA-saiarcot895-chromium-beta
 Pin-Priority: 1002
----
+```
 
 for dev:
----
+```
 Package: *
 Pin: release o=LP-PPA-saiarcot895-chromium-dev
 Pin-Priority: 1002
----
+```
 
 
 3. Install Chromium Browser from the Saiarcot895 (VA-API) PPA:
+```
 $ sudo apt update
 $ sudo apt install chromium-browser
+```
 
 4. Install the VA-API driver
 For Intel graphics cards, you'll need to install the i965-va-driver package (it may already be installed):
+```
 $ sudo apt install i965-va-driver
+```
 
 For NVIDIA:
+```
 $ sudo apt install vdpau-va-driver
+```
 if missing. Download DEB from below: vdpau-va-driver_0.7.4-7ubuntu1~ppa2~20.04.1_amd64.deb	
 http://ppa.launchpad.net/saiarcot895/chromium-dev/ubuntu/pool/main/v/vdpau-video/
 
 5. Enable the Hardware-accelerated video option in Chromium.
 Go to
+```
 $ chrome://flags
 enable these:
 ignore-gpu-blacklist
 enable-gpu-rasterization
 enable-zero-copy
 enable-oop-rasterization
+```
 
 6. Install h264ify Chrome extension.
 https://chrome.google.com/webstore/detail/h264ify/aleakchihdccplidncghkekgioiakgal
@@ -62,37 +74,51 @@ OR
 https://chrome.google.com/webstore/detail/enhanced-h264ify/omkfmpieigblcllmkgbflkikinpkodlk
 
 install these packages to see info:
+```
 $ sudo apt install vainfo
 $ sudo apt install vdpauinfo
+```
 
 check output
+```
 $ vainfo
 $ vdpauinfo
+```
 
 These should give output.
 
 set this in environment variable:
 
 For Intel:
+```
 $ sudo nano /etc/environment
 LIBVA_DRIVER_NAME=i965
 VDPAU_DRIVER=va_gl
+```
 
 For NVIDIA:
+```
 $ sudo nano /etc/environment
 LIBVA_DRIVER_NAME=vdpau
 VDPAU_DRIVER=nvidia
+```
 
 Restart or Logout pc.
 
 Finally Run chromium
 for intel:
+```
 $ chromium-browser --use-gl=desktop
+```
 OR
+```
 $ LIBVA_DRIVER_NAME=i965 chromium-browser --use-gl=desktop
+```
 
 for NVIDIA:
+```
 $ LIBVA_DRIVER_NAME=vdpau chromium-browser --use-gl=desktop
+```
 
 Check out if hardware acceleration working
 Go to:
