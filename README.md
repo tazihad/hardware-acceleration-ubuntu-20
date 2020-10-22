@@ -6,7 +6,7 @@ For Reference: https://www.linuxuprising.com/2018/08/how-to-enable-hardware-acce
 1. Add the Chromium with VA-API support PPA.
 
 BETA BRANCE:
-$ sudo add-apt-repository ppa:saiarcot895/chromium-beta
+    $ sudo add-apt-repository ppa:saiarcot895/chromium-beta
 OR
 DEV BRANCE:
 $ sudo add-apt-repository ppa:saiarcot895/chromium-dev
